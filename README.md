@@ -11,8 +11,7 @@ Setup Instructions
 You will need node package manager(npm) installed. If you do not have npm installed, you can go to this website to install it: https://nodejs.org/en/download/
 With npm installed, type or copy in the terminal:
 
-"npm install"
-
+    "npm install"
 
 3. Generate SSL Certificates
 This project uses OpenSSL to create a self-signed certificate.
@@ -20,14 +19,14 @@ Follow instructions for how to install OpenSSL on your computer: https://www.ope
 Make sure that your terminal is in the project directory and input or copy this command:
 
 
-"openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes"
+    "openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes"
 
 You will be asked to enter some information about your certificate. Enter whatever you like for the fields, although I recommend using "localhost" for the Common Name(CM)
 
 4. Start the Server
 Use this command to start the server:
 
-"node server.js"
+    "node server.js"
 
 Open the app at https://localhost:3000 (accept security warning for self-signed cert).
 

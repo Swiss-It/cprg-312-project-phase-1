@@ -1,5 +1,5 @@
-Wellness Tracker – Secure Web App
-Project Overview
+Wellness Tracker – Secure Web App\
+Project Overview\
 The Wellness Tracker is a web application that allows users to track their mindfulness practices, set wellness goals, and monitor their moods over time. This project focuses on implementing web security best practices, including SSL/TLS encryption, secure HTTP headers, and caching strategies. In the future I will be building more pieces of this app. I have chosen to build a Wellness Tracker app, as I think it would be cool to work on features for me to help track some of the health difficulties I am currently dealing with. I am hoping to build this app directly for manual health metrics, daily mood tracking, and goal setting.
 
 ------------------------------------------------------------------------------------

@@ -7,13 +7,13 @@ The Wellness Tracker is a web application that allows users to track their mindf
 Setup Instructions
 1. Clone this Repository
 
-2. Install Dependencies
+2. Install Dependencies\
 You will need node package manager(npm) installed. If you do not have npm installed, you can go to this website to install it: https://nodejs.org/en/download/
 With npm installed, type or copy in the terminal:
 
     "npm install"
 
-3. Generate SSL Certificates
+3. Generate SSL Certificates\
 This project uses OpenSSL to create a self-signed certificate.
 Follow instructions for how to install OpenSSL on your computer: https://www.openssl.org/source/
 Make sure that your terminal is in the project directory and input or copy this command:
@@ -23,7 +23,7 @@ Make sure that your terminal is in the project directory and input or copy this 
 
 You will be asked to enter some information about your certificate. Enter whatever you like for the fields, although I recommend using "localhost" for the Common Name(CM)
 
-4. Start the Server
+4. Start the Server\
 Use this command to start the server:
 
     "node server.js"
@@ -32,46 +32,45 @@ Open the app at https://localhost:3000 (accept security warning for self-signed 
 
 ------------------------------------------------------------------------------------
 
-SSL Configuration
-This app is secured using OpenSSL with a self-signed certificate. This ensures encrypted HTTPS communication, preventing data interception.
+SSL Configuration\
+This app is secured using OpenSSL with a self-signed certificate. This ensures encrypted HTTPS communication, preventing data interception.\
 The certificate is configured using the following:
 
--x509 - Standard format for SSL/TLS certificates.
--newkey rsa:2048 - RSA 2048-bit encryption	is industry standard for strong security and performance balance.
--keyout key.pem - Stores the private key securely.
--out cert.pem - Stores the self-signed SSL certificate.
--days 365 - Keeps the certificate valid for testing over a 1-year period.
--nodes - No password encryption for simplified local development, avoiding manual passphrase entry.
+-x509 - Standard format for SSL/TLS certificates.\
+-newkey rsa:2048 - RSA 2048-bit encryption	is industry standard for strong security and performance balance.\
+-keyout key.pem - Stores the private key securely.\
+-out cert.pem - Stores the self-signed SSL certificate.\
+-days 365 - Keeps the certificate valid for testing over a 1-year period.\
+-nodes - No password encryption for simplified local development, avoiding manual passphrase entry.\
 
 ------------------------------------------------------------------------------------
 
-Secure HTTP Headers
+Secure HTTP Headers\
 The implemented security headers use Helmet.js to protect against common vulnerabilities:
 
-Content-Security-Policy - Prevents XSS and code injection.
-X-Frame-Options: DENY - Prevents clickjacking attacks.
-Strict-Transport-Security - Enforces HTTPS connections.
-X-Content-Type-Options: nosniff - Stops MIME-type sniffing.
-Referrer-Policy: strict-origin-when-cross-origin - Controls referrer information sharing.
+Content-Security-Policy - Prevents XSS and code injection.\
+X-Frame-Options: DENY - Prevents clickjacking attacks.\
+Strict-Transport-Security - Enforces HTTPS connections.\
+X-Content-Type-Options: nosniff - Stops MIME-type sniffing.\
+Referrer-Policy: strict-origin-when-cross-origin - Controls referrer information sharing.\
 
 ------------------------------------------------------------------------------------
 
-Route and Caching Strategies
-These are the current implemented cache control strategies, with stale-while-revalidate for better performance and keeping fresh data. Some data is not cached, for security reasons.
+Route and Caching Strategies\
+These are the current implemented cache control strategies, with stale-while-revalidate for better performance and keeping fresh data. Some data is not cached, for security reasons.\
 They are listed Route - Method - Purpose - Cache Control
 
-Route	Method	Purpose	Cache Control
-/moods - GET - Fetch moods - max-age=300, stale-while-revalidate=300
-/moods - POST - Add mood - No caching
-/goals - GET - Fetch goals - max-age=600, stale-while-revalidate=600
-/goals - POST - Add goal - No caching
-/resources - GET - Fetch wellness resources - max-age=3600, stale-while-revalidate=3600
+/moods - GET - Fetch moods - max-age=300, stale-while-revalidate=300\
+/moods - POST - Add mood - No caching\
+/goals - GET - Fetch goals - max-age=600, stale-while-revalidate=600\
+/goals - POST - Add goal - No caching\
+/resources - GET - Fetch wellness resources - max-age=3600, stale-while-revalidate=3600\
 
 ------------------------------------------------------------------------------------
 
-Lessons Learned & Challenges
-SSL Certificate Issues
+Lessons Learned & Challenges\
+SSL Certificate Issues\
 When I was trying to start my server I had issues finding my SSL certificate. I had accidentally generated the certificate in a different directory. I proceeded to fix the issue by generating a new certificate in the project directory.
 
-Content Security Policy (CSP) Errors
+Content Security Policy (CSP) Errors\
 When I first started the project I had some errors in the console regarding CSP. I was able to fix these errors by adjusting the script-src and style-src policies to allow trusted sources.
